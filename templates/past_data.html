@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Past Exercise Data</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body{
+      background-image: url('https://img.freepik.com/free-vector/abstract-medical-wallpaper-template-design_53876-61806.jpg?size=338&ext=jpg&ga=GA1.1.1141335507.1718150400&semt=ais_user');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .container {
+      max-width: 800px;
+      margin-top: 50px;
+    }
+    .table-responsive{
+      border-color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center mb-4">Past Exercise Data</h2>
+    
+    <!-- Table -->
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered">
+        <thead>
+          <tr>
+            <th>Date & Time</th>
+            <th>Exercise</th>
+            <th>Duration (minutes)</th>
+            <th>Repetitions</th>
+            <th>Calories Burned</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if fitness_activities %}
+            {% for exercise in fitness_activities %}
+              <tr>
+                        <td>{{exercise.date_time}}</td> 
+                        <td>{{exercise.activity_id}}</td>
+                        <td>{{exercise.duration}}</td>
+                        <td>{{exercise.repetitions}}</td>
+                        <td>{{exercise.calories_burned}}</td>
+                        <!-- Add more fields as needed -->
+              </tr>
+            {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="5">No user data available.</td>
+              </tr>
+            {% endif %}
+        </tbody>
+      </table>
+    </div>
+    
+    <!-- Back Button -->
+    <div class="text-center">
+      <a href="dashboard" class="btn btn-primary">Back to Dashboard</a>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies (jQuery, Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body{
+      background-image: url('https://t4.ftcdn.net/jpg/02/08/13/53/360_F_208135384_P3gpf2RVbAMvTcYo5LGK9gq98PZLNfcc.jpg');
+      background-repeat: no-repeat;
+      background-size:cover;
+    }
+    .dashboard {
+      max-width: 800px;
+      margin: 20px auto;
+      margin-left: 10px;
+      margin-top: 100px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .dashboard h2 {
+      margin-bottom: 20px;
+    }
+    .btn-custom {
+      margin-bottom: 10px;
+    }
+    p{
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="dashboard">
+      <h2 class="text-center mb-4">Dashboard</h2>
+      
+      <!-- User Profile -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3>User Profile</h3>
+        </div>
+        <div class="card-body">
+          {% for user in user_det %}
+          <p><strong>Username:</strong> {{user.user_name}}</p>
+          <p><strong>Age:</strong> {{user.age}}</p>
+          <p><strong>Gender:</strong> {{user.gender}}</p>
+          <p><strong>Height:</strong> {{user.height}} cm</p>
+          <p><strong>Weight:</strong> {{user.weight}} kg</p>
+          {% endfor %}
+         <!-- <a href="profile.html" class="btn btn-primary btn-custom">Edit Profile</a> -->
+        </div>
+      </div>
+      
+      <!-- Navigation Links -->
+      <div class="text-center">
+        <a href="past_data" class="btn btn-primary btn-custom">View Past History</a>
+        <a href="exercises" class="btn btn-primary btn-custom">Perform Exercise</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies (jQuery, Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
